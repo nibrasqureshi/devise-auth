@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-# application rb file 
-
+# application rb file
 
 require_relative 'boot'
 
