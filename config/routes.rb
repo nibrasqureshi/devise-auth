@@ -2,11 +2,11 @@
 
 Rails.application.routes.draw do
   root 'welcome#index'
-  
-  devise_for :admins, :controllers => { registrations: 'registrations' }
+
+  devise_for :admins, controllers: { registrations: 'registrations' }
   #  controllers: {
   #  sessions: 'admins/sessions'
-    
+
   # }
 
   # devise_for :admins

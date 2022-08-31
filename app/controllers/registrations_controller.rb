@@ -1,3 +1,4 @@
+#registrations controller for devise 
 class RegistrationsController < Devise::RegistrationsController
 
   protect_from_forgery with: :exception
