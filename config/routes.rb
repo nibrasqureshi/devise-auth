@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
+    registrations: 'admins/registrations'
   }
 
   # devise_for :admins
