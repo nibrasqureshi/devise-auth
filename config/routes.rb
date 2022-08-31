@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :admins
-  get 'registration/new'
+
   #  controllers: {
   #  sessions: 'admins/sessions'
     
