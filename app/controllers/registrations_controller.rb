@@ -1,6 +1,7 @@
-#registrations controller for devise 
-class RegistrationsController < Devise::RegistrationsController
+# frozen_string_literal: true
 
+# registrations controller for devise
+class RegistrationsController < Devise::RegistrationsController
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
