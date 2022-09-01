@@ -4,7 +4,7 @@ class PostPolicy < ApplicationPolicy
 		end
 		
 		def update?
-			user.present? 
+			return true if user.present? && user.id == post.admin_id
 		end
 		
 		def destroy?
