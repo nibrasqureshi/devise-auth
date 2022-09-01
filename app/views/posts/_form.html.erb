@@ -4,6 +4,7 @@
   <br>
   <%= form.label :body %><br>
   <%= form.text_area :body %><br> 
+  <%= form.hidden_field :admin_id, value: current_admin.id %><br>
   <br>
   <%= form.submit %>
 <% end %>
