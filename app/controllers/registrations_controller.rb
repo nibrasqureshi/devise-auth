@@ -2,6 +2,7 @@
 
 # registrations controller for devise
 class RegistrationsController < Devise::RegistrationsController
+  before_action :authenticate_admin!
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters
 

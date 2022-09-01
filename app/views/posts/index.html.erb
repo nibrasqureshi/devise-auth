@@ -1,0 +1,13 @@
+<%= link_to "Sign Out", destroy_admin_session_path, method: :delete %> 
+<%= link_to 'Edit Profile', edit_admin_registration_path %>
+<br>
+<div>
+  <% @post.each do |post|%>
+    <h2>Title</h2>
+    <%= post.title %>
+    <h2>Body</h2>
+    <%= truncate(post.body, :length => 35)%>
+    <br>
+    <%= link_to "Read Post", post_path(post) %> 
+  <% end %>
+</div>
