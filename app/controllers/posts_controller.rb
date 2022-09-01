@@ -13,6 +13,10 @@ class PostsController < ApplicationController
   def index
     @post = Post.order("created_at DESC")
   end
+	
+	def navaction
+		javascript_include_tag "nav"
+	end
 
   def create
     @post = Post.new(post_params)
