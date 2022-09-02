@@ -2,15 +2,14 @@
 
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
-  # before_action :authenticate_admin!, only: %i[new edit destroy]
+  before_action :authenticate_admin!, only: %i[new edit destroy]
+	before_action :authpost, except: %i[new index navaction create show]
 
   def new
     @post = Post.new
   end
 
   def destroy
-		
-    authorize @post
     @post.destroy
     redirect_to root_path
   end
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    authorize @post
+    authpost
     if @post.save
       redirect_to @post
     else
@@ -36,12 +35,12 @@ class PostsController < ApplicationController
   def show; end
 
   def edit;
-		authorize @post
+	
   end
 
 
   def update
-		authorize @post
+	
     if @post.update(post_params)
       redirect_to @post
     else
@@ -58,4 +57,7 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :admin_id)
   end
+	def authpost
+		authorize @post
+	end
 end
