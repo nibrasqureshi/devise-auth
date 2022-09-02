@@ -12,6 +12,9 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     return true if user.present? && user.id == post.admin_id
   end
+	def edit?
+		user.present?
+	end
 
   private
 

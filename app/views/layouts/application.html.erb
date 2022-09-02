@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% if admin_signed_in? %>
+    <%= current_admin.email %>
+    <%else%>
+    <p>Not signed in</p>
+    <%end%>
     <%= render "layouts/navbar" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

@@ -2,13 +2,14 @@
 
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
-  before_action :authenticate_admin!, only: %i[new edit destroy]
+  # before_action :authenticate_admin!, only: %i[new edit destroy]
 
   def new
     @post = Post.new
   end
 
   def destroy
+		
     authorize @post
     @post.destroy
     redirect_to root_path
@@ -34,9 +35,13 @@ class PostsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit;
+		authorize @post
+  end
+
 
   def update
+		authorize @post
     if @post.update(post_params)
       redirect_to @post
     else
