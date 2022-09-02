@@ -11,9 +11,9 @@
 
   <body>
     <% if admin_signed_in? %>
-    <%= current_admin.email %>
+    <p>Current User: <%= current_admin.email %></p>
     <%else%>
-    <p>Not signed in</p>
+    <%= flash[:alert] = 'User is not signed in!'%>
     <%end%>
     <%= render "layouts/navbar" %>
     <p class="notice"><%= notice %></p>
